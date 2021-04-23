@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Check Sim
-      run: xcrun simctl list &>/dev/null
+      run: echo xcrun simctl list &>/dev/null
   build:
     name: Build
     runs-on: macos-latest
