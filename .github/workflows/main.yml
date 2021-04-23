@@ -11,7 +11,7 @@ jobs:
     - name: Choose Xcode 12
       run: sudo xcode-select --switch /Applications/Xcode_12.app
     - name: Build App
-      run: xcodebuild -scheme "SeeEyeSeeSee" -target SeeEyeSeeSee -sdk iphonesimulator clean build
+      run: xcodebuild -scheme "SeeEyeSeeDee" -target SeeEyeSeeDee -sdk iphonesimulator clean build
       
   tests:
     name: Run Tests
@@ -22,4 +22,4 @@ jobs:
     - name: Choose Xcode 12
       run: sudo xcode-select --switch /Applications/Xcode_12.app
     - name: Run Tests
-      run: xcodebuild -scheme "SeeEyeSeeSee" -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=14.0' test
+      run: xcodebuild -scheme "SeeEyeSeeDee" -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=14.0' test
