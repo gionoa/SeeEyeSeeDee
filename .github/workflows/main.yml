@@ -1,0 +1,24 @@
+name: Basic CI
+on: 
+  push
+  
+jobs: 
+  hello_world:
+    name: Hello World
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@master
+    - run: echo Yo
+    
+    
+build:
+  name: Build
+    runs-on: macos-latest
+    needs: lint
+    steps:
+    - uses: actions/checkout@master
+    - name: Choose Xcode 12
+      run: sudo xcode-select --switch /Applications/Xcode_12.app
+    - name: Build App
+      run: xcodebuild -scheme "SeeEyeSeeDee" -target SeeEyeSeeDee -sdk iphonesimulator clean build
+      
