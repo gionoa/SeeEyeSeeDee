@@ -9,15 +9,6 @@ jobs:
     - uses: actions/checkout@master
     - name: Check Sim
       run: echo xcrun simctl list &>/dev/null
-  build:
-    name: Build
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: Choose Xcode 12
-      run: sudo xcode-select --switch /Applications/Xcode_12.app
-    - name: Build App
-      run: xcodebuild -scheme "SeeEyeSeeDee" -target SeeEyeSeeDee -sdk iphonesimulator clean build
   tests:
     name: Run Tests
     runs-on: macos-latest
