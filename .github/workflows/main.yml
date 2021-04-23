@@ -24,10 +24,10 @@ jobs:
   tests:
     name: Run Tests
     runs-on: macos-latest
-    needs: build
+    needs: Build
     steps:
     - uses: actions/checkout@master
     - name: Choose Xcode 12
       run: sudo xcode-select --switch /Applications/Xcode_12.app
     - name: Run Tests
-      run: xcodebuild -scheme "SeeEyeSeeDee" -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=14.0' test
+      run: xcodebuild -scheme "SeeEyeSeeDee" -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest' test
