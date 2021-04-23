@@ -1,20 +1,25 @@
+
 name: CI
-on: 
+on:
   push
-jobs: 
-  check_simulators:
-    name: Check Simulators
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: Check Sim
-      run: echo xcrun simctl list &>/dev/null
-  tests:
-    name: Run Tests
+jobs:
+  build:
+    name: Build
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@master
     - name: Choose Xcode 12
       run: sudo xcode-select --switch /Applications/Xcode_12.app
+    - name: Build App
+      run: xcodebuild -scheme "SeeEyeSeeSee" -target SeeEyeSeeSee -sdk iphonesimulator clean build
+      
+  tests:
+    name: Run Tests
+    runs-on: macos-latest
+    needs: build
+    steps:
+    - uses: actions/checkout@master
+    - name: Choose Xcode 12
+      run: sudo xcode-select --switch /Applications/Xcode_12.app
     - name: Run Tests
-      run: xcodebuild -project SeeEyeSeeDee.xcodeproj -scheme SeeEyeSeeDee -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.3' test
+      run: xcodebuild -scheme "SeeEyeSeeSee" -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=14.0' test
