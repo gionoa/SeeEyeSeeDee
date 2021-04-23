@@ -11,10 +11,9 @@ jobs:
     - run: echo Yo
     
     
-build:
-  name: Build
+  build:
+    name: Build
     runs-on: macos-latest
-    needs: lint
     steps:
     - uses: actions/checkout@master
     - name: Choose Xcode 12
