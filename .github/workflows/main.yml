@@ -2,6 +2,13 @@ name: CI
 on: 
   push
 jobs: 
+  check_simulators:
+    name: Check Simulators
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Check Sim
+      run: xcrun simctl list &>/dev/null
   build:
     name: Build
     runs-on: macos-latest
@@ -11,7 +18,6 @@ jobs:
       run: sudo xcode-select --switch /Applications/Xcode_12.app
     - name: Build App
       run: xcodebuild -scheme "SeeEyeSeeDee" -target SeeEyeSeeDee -sdk iphonesimulator clean build
-      
   tests:
     name: Run Tests
     runs-on: macos-latest
