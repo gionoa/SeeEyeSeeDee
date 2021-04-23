@@ -18,7 +18,6 @@ jobs:
       run: sudo xcode-select --switch /Applications/Xcode_12.app
     - name: Build App
       run: xcodebuild -scheme "SeeEyeSeeDee" -target SeeEyeSeeDee -sdk iphonesimulator clean build
-      
   tests:
     name: Run Tests
     runs-on: macos-latest
