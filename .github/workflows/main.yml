@@ -17,4 +17,4 @@ jobs:
     - name: Choose Xcode 12
       run: sudo xcode-select --switch /Applications/Xcode_12.app
     - name: Run Tests
-      run: xcodebuild -project SeeEyeSeeDee -scheme SeeEyeSeeDee -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.3' test
+      run: xcodebuild -project SeeEyeSeeDee.xcodeproj -scheme SeeEyeSeeDee -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.3' test
